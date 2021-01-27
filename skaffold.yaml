@@ -12,7 +12,7 @@ build:
   #   projectId: ticketing-dev-301716
   artifacts:
     - image: yunoyunoyuno/auth
-    #- image: us.gcr.io/ticketing-dev-301716/auth
+    #- image: us.gcr.io/ticketing-dev-301716/auth   แงๆ
       context: auth
       docker:
         dockerfile: Dockerfile
