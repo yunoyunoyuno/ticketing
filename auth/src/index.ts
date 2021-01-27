@@ -1,0 +1,33 @@
+import mongoose from "mongoose"
+import { DatabaseConnectionError } from '@yn-tickets/common';
+import { app } from './app'
+
+const start = async () => {
+  try {
+
+    if (!process.env.JWT_KEY) {
+      throw new Error("JWT_KEY must be given :( ")
+    }
+
+    if (!process.env.MONGO_URI) {
+      throw new Error("MONGO_URI Must be defined")
+    }
+
+    await mongoose.connect(process.env.MONGO_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex: true
+    });
+    console.log("Connecting to DB [auth] ... ")
+    
+  } catch (err) {
+    throw new DatabaseConnectionError();
+  }
+
+  app.listen(3000, () => {
+    console.log('Listening on port 3000!! [auth]')
+  })
+
+}
+
+start();
