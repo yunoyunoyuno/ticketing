@@ -5,7 +5,7 @@ import { app } from './app'
 const start = async () => {
 
   console.log('Starting ... up [Auth] !!!');
-=======
+
   console.log('Starting ... up [Auth]');
 
   try {
