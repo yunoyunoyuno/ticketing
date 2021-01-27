@@ -6,6 +6,7 @@ import { OrderCreatedListener } from "./events/listeners/order-created-listener"
 import { OrderCancelledListener } from "./events/listeners/order-cancelled-listener";
 
 const start = async () => {
+  
 
   if (!process.env.JWT_KEY) throw new Error("JWT_KEY must be given :( ")
   if (!process.env.MONGO_URI) throw new Error("MONGO_URI must be defined")
@@ -14,6 +15,8 @@ const start = async () => {
   if (!process.env.NATS_CLUSTER_ID) throw new Error("NATS_CLUSTER_ID must be given :( ")
 
   try {
+
+    console.log("Starting ... [Payments]");
 
     await natsWrapper.connect(process.env.NATS_CLUSTER_ID, process.env.NATS_CLIENT_ID, process.env.NATS_URL);
     natsWrapper.client.on('close', () => {
