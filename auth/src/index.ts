@@ -7,7 +7,7 @@ const start = async () => {
   try {
 
     if (!process.env.JWT_KEY) {
-      throw new Error("JWT_KEY must be given :( ")
+      throw new Error("JWT_KEY must be given ! ")
     }
 
     if (!process.env.MONGO_URI) {
