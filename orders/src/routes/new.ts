@@ -8,7 +8,7 @@ import { OrderCreatedPublisher } from '../events/publisher/order-created-publish
 import { natsWrapper } from '../nats-wrapper';
 
 const router = express.Router();
-const EXPIRATION_WINDOW_SECONDS = 1 * 60;
+const EXPIRATION_WINDOW_SECONDS = 5 * 60;
 
 router.post('/api/v0.0.1/orders',
   requireAuth,  [
