@@ -3,7 +3,11 @@ import { DatabaseConnectionError } from '@yn-tickets/common';
 import { app } from './app'
 
 const start = async () => {
+
+  console.log('Starting ... up [Auth] !!!');
+=======
   console.log('Starting ... up [Auth]');
+
   try {
 
     if (!process.env.JWT_KEY) {
